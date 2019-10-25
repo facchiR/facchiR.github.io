@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "/test.html",
+  "start_url": "https://www.youtube.com/watch?v=lbf7VUIYnJ0",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"

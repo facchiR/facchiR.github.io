@@ -24,21 +24,27 @@
 <body class="">
 	<div class="container-fluid">     
         
-		<div class="row">
+		<div class="row" id="banner">
 			<div class="col-lg-12 my-auto p-3">			
 				<button id="setup_button" type="button" class="btn btn-primary" onclick="installApp()">Installa</button>	il nostro store
 			</div>
 		</div>
 		
-		<p id="bowser"></p>
+		
         <iframe name="html5_game" src="./test.html"  width="800" height="500" scrolling="no">
 			Sorry your browser does not support iframe
 		</iframe>
+		<p id="bowser"></p>
 	</div>
   
 
 	<script src="js/main.js"></script>
 	<script>
+		function getBannerH (id){
+			var img = document.getElementById(id); 
+			var height = img.clientHeight+"px";
+			return height; 
+		}
 		let deferredPrompt; // Allows to show the install prompt
 		let setupButton;
 		if (setupButton == undefined) 
@@ -57,6 +63,8 @@
 				setupButton = document.getElementById("setup_button");
 			}
 			// Show the setup button
+			let banner = document.getElementById("banner"); 
+			banner.style.height = calc(getBannerH("banner")/2); 
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 		});

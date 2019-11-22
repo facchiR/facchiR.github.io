@@ -3,20 +3,14 @@ body {
 }
 
 /* Make content area fill the entire browser window */
-html,
+/*html,
 .fullscreen {
   display: flex;
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
-}
-
-/* Center the content in the browser window */
-.container {
-  margin: auto;
-  text-align: center;
-}
+}*/
 
 .title {
   font-size: 3rem;
@@ -26,6 +20,7 @@ html,
 	width: 100%; 
 	padding-top: 16%; 
 	position: relative; 
+	border-bottom: 1px solid rgba(0,0,0,.125);
 }
 #banner .bannerContent{
 	position: absolute;
@@ -33,4 +28,5 @@ html,
     left: 0;
     bottom: 0;
     right: 0;
+	margin: auto; 
 }

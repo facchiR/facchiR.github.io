@@ -30,15 +30,15 @@
 <body class="">
 	<div class="container-fluid">     
         
-		<div class="row">
+		<div class="row" id="banner">
 			<div class="col-lg-12 my-auto p-3">
 				Clicca qui per
 				<button id="setup_button" type="button" class="btn btn-primary">Installare</button>
 				il nostro play store
 			</div>
 		</div>
-		<iframe src="https://movistarjuegos.onmobilespace.com/Home/Category" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pippo" allowfullscreen="allowfullscreen"></iframe>
-		<p id="bowser"></p>
+		<iframe src="https://movistarjuegos.onmobilespace.com/Home/Category" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" allowfullscreen="allowfullscreen"></iframe>
+		<p id="bowser" style="display: none;"></p>
 	</div>
   
 
@@ -68,7 +68,9 @@
 			}
 			// Show the setup button
 			let banner = document.getElementById("banner"); 
-			banner.style.height = calc(getBannerH("banner")/2); 
+			let pageContent = document.getElementById("pageContent"); 
+			let bannerH = getBannerH("banner");
+			pageContent.style.top = bannerH + "px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 		});

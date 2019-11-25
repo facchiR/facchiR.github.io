@@ -67,10 +67,11 @@
 				setupButton = document.getElementById("setup_button");
 			}
 			// Show the setup button
+			console.log("Show the setup button"); 
 			let banner = document.getElementById("banner"); 
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("banner");
-			pageContent.style.top = bannerH + "px"
+			pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 		});

@@ -37,28 +37,14 @@
 				il nostro play store
 			</div>
 		</div>
-		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:57px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 		<p id="bowser" style="display: none;"></p>
 	</div>
   
 
 	<script src="js/main.js"></script>
 	<script>
-		function addNewStyle(newStyle) {
-			console.log("ROZ1"); 
-			var styleElement = document.getElementById('styles_js');
-			if (!styleElement) {
-				console.log("ROZ2"); 
-				styleElement = document.createElement('style');
-				styleElement.type = 'text/css';
-				styleElement.id = 'styles_js';
-				document.getElementsByTagName('head')[0].appendChild(styleElement);
-			}
-			console.log("ROZ3"); 
-			styleElement.appendChild(document.createTextNode(newStyle));
-		}
-
-	
+			
 		function getBannerH (id){
 			var img = document.getElementById(id); 
 			var height = img.clientHeight+"px";
@@ -72,7 +58,7 @@
 			setupButton.style.display = 'none';
 		}
 
-		console.log("Aza 1");
+	
 		window.addEventListener('beforeinstallprompt', (e) => {
 			// Prevent Chrome 67 and earlier from automatically showing the prompt
 			e.preventDefault();
@@ -92,7 +78,12 @@
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
-			addNewStyle('#banner{top:'+bannerH+' !important;}'); 
+			var style = document.createElement('style')
+			style.setAttribute("id", "style");
+			
+			style.innerHTML = "#banner{top:"+bannerH+" !important;}";	
+			document.head.appendChild(style);					
+			
 			console.log("ROZ10"); 
 		});
 		

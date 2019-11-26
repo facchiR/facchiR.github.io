@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="images/hello-icon-152.png">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="white"/>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -44,18 +44,6 @@
 
 	<script src="js/main.js"></script>
 	<script>
-		function addNewStyle(newStyle) {
-			var styleElement = document.getElementById('styles_js');
-			if (!styleElement) {
-				styleElement = document.createElement('style');
-				styleElement.type = 'text/css';
-				styleElement.id = 'styles_js';
-				document.getElementsByTagName('head')[0].appendChild(styleElement);
-			}
-			styleElement.appendChild(document.createTextNode(newStyle));
-		}
-
-	
 		function getBannerH (id){
 			var img = document.getElementById(id); 
 			var height = img.clientHeight+"px";
@@ -84,12 +72,10 @@
 			let banner = document.getElementById("banner"); 
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("banner");
-			console.log(bannerH); 
 			//pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
-			addNewStyle('#banner{top:'+bannerH+' !important;}'); 
 		});
 		
 		function installApp() {

@@ -45,13 +45,16 @@
 	<script src="js/main.js"></script>
 	<script>
 		function addNewStyle(newStyle) {
+			console.log("ROZ1"); 
 			var styleElement = document.getElementById('styles_js');
 			if (!styleElement) {
+				console.log("ROZ2"); 
 				styleElement = document.createElement('style');
 				styleElement.type = 'text/css';
 				styleElement.id = 'styles_js';
 				document.getElementsByTagName('head')[0].appendChild(styleElement);
 			}
+			console.log("ROZ3"); 
 			styleElement.appendChild(document.createTextNode(newStyle));
 		}
 
@@ -90,6 +93,7 @@
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
 			addNewStyle('#banner{top:'+bannerH+' !important;}'); 
+			console.log("ROZ10"); 
 		});
 		
 		function installApp() {

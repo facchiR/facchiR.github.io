@@ -37,7 +37,7 @@
 				il nostro play store
 			</div>
 		</div>
-		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" allowfullscreen="allowfullscreen"></iframe>
+		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:57px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" allowfullscreen="allowfullscreen"></iframe>
 		<p id="bowser" style="display: none;"></p>
 	</div>
   
@@ -72,11 +72,10 @@
 			let banner = document.getElementById("banner"); 
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("banner");
-			pageContent.style.top = bannerH +"px"
+			//pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
-			console.log(localStorage); 
 		});
 		
 		function installApp() {

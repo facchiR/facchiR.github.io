@@ -45,14 +45,16 @@
 		console.log("CHECK 1")	
 		function checkBrowser(){
 			var name = localStorage.browserN; 
+			var bannerChild = document.getElementById("banner").firstChild(); 
 			switch (name){
-				case "Chrome": 
-					var bannerChild = document.getElementById("banner").firstChild(); 
+				case "Chrome": 					
 					bannerChild.append( 'Clicca qui per<button id="setup_button" type="button" class="btn btn-primary">Installare</button>il nostro play store'); 			
 					break; 
 				case "Samsung Internet for Android":
+					bannerChild.append("SAMM");
 					break; 
 				case "Firefox":
+					bannerChild.append("Fox"); 
 					break; 
 			}
 		}

@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
 }
+<<<<<<< HEAD
 
 
 #pageContent{
@@ -8,6 +9,8 @@ body {
 	-moz-transition: top 2s ease;
 	transition: top 2s ease;
 }
+=======
+>>>>>>> parent of b729357... animations
 
 
 

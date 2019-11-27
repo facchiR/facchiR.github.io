@@ -1,6 +1,7 @@
 var writeb = function(browser){
 	var bowser = document.getElementById("bowser"); 
 	bowser.innerHTML = browser; 
+	localStorage.setItem('browserN', browser.name); 
 }
 window.addEventListener("load", function() {
   // PARSE USER AGENT

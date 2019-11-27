@@ -74,15 +74,15 @@
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("banner");
 			console.log(bannerH); 
+			//banner.style.visibility = "visible"
 			//pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
-			//alert("Show the setup button"); 
-			
-			var style = document.createElement('style');
+			alert("Show the setup button"); 
+			var style = document.createElement('style')
 			style.setAttribute("id", "style");
 			
-			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
+			style.innerHTML = "#banner{top:"+bannerH+" !important;}";	
 			document.head.appendChild(style);					
 			
 			console.log("ROZ10"); 

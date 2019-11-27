@@ -61,7 +61,13 @@
 			setupButton.style.display = 'none';
 		}
 		console.log("CHECK 3")	
-
+		function fromTop(){
+			var style = document.createElement('style')
+			style.setAttribute("id", "style");
+			
+			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
+			document.head.appendChild(style);	
+		}
 	
 		window.addEventListener('beforeinstallprompt', (e) => {
 			// Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -83,11 +89,7 @@
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
-			var style = document.createElement('style')
-			style.setAttribute("id", "style");
-			
-			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
-			document.head.appendChild(style);					
+			fromTop(); 				
 			
 			console.log("ROZ10"); 
 		});

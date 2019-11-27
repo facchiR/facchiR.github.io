@@ -32,7 +32,9 @@
         
 		<div class="row text-center" id="banner">
 			<div class="col-lg-12 my-auto p-3">
-				
+				Clicca qui per
+				<button id="setup_button" type="button" class="btn btn-primary">Installare</button>
+				il nostro play store
 			</div>
 		</div>
 		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
@@ -47,13 +49,15 @@
 			var name = localStorage.browserN; 
 			switch (name){
 				case "Chrome": 
-					var bannerChild = document.getElementById("banner").firstChild(); 
-					bannerChild.append( 'Clicca qui per<button id="setup_button" type="button" class="btn btn-primary">Installare</button>il nostro play store'); 			
+					alert("chrome")
 					break; 
 				case "Samsung Internet for Android":
+					alert("Samsung Internet for Android")
 					break; 
 				case "Firefox":
+					alert("Firefox")
 					break; 
+				default:
 			}
 		}
 		console.log(localStorage); 	
@@ -69,8 +73,7 @@
 		if (setupButton == undefined) 
 		{
 			setupButton = document.getElementById("setup_button");
-			if(setupButton)
-				setupButton.style.display = 'none';
+			setupButton.style.display = 'none';
 		}
 		console.log("CHECK 3")	
 

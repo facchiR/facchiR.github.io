@@ -71,7 +71,8 @@
 		if (setupButton == undefined) 
 		{
 			setupButton = document.getElementById("setup_button");
-			setupButton.style.display = 'none';
+			if(setupButton !== null)
+				setupButton.style.display = 'none';
 		}
 		console.log("CHECK 3")	
 

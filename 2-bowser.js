@@ -23,6 +23,6 @@ window.addEventListener("load", function() {
   
   localStorage.setItem('browserN', result.browser.name); 
   // BROWSER INFO
-  var res = result.browser.name + "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
+  var res = result.browser.name //+ "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
   writeb(res);
 });

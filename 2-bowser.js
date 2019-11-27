@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
   var result = bowser.getParser(navigator.userAgent).getResult();
   
    // BROWSER INFO
-  alert(result.browser.name);
+  console.log(result.browser.name);
   console.log(result.browser.version);
   console.log(result.engine);
 

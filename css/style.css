@@ -1,6 +1,9 @@
 body {
   font-family: sans-serif;
 }
+#pageContent{
+	-webkit-transition: top 4s ease;
+}
 
 /* Make content area fill the entire browser window */
 /*html,

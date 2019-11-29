@@ -44,15 +44,12 @@
 
 	<script src="js/main.js"></script>
 	<script>
-		console.log("CHECK 1")	
-		console.log(localStorage); 	
-		
+			
 		function getBannerH (id){
 			var img = document.getElementById(id); 
 			var height = img.clientHeight+"px";
 			return height; 
 		}
-		console.log("CHECK 2")	
 		let deferredPrompt; // Allows to show the install prompt
 		let setupButton;
 		if (setupButton == undefined) 
@@ -60,15 +57,7 @@
 			setupButton = document.getElementById("setup_button");
 			setupButton.style.display = 'none';
 		}
-		console.log("CHECK 3")	
-		function fromTop(){
-			let bannerH = getBannerH("banner");
-			var style = document.createElement('style')
-			style.setAttribute("id", "style");
-			
-			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
-			document.head.appendChild(style);	
-		}
+
 	
 		window.addEventListener('beforeinstallprompt', (e) => {
 			// Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -90,11 +79,15 @@
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
 			alert("Show the setup button"); 
-			fromTop(); 				
+			var style = document.createElement('style')
+			style.setAttribute("id", "style");
+			
+			style.innerHTML = "#banner{top:"+bannerH+" !important;}";	
+			document.head.appendChild(style);					
 			
 			console.log("ROZ10"); 
 		});
-		console.log("CHECK 4")	
+		
 		function installApp() {
 		// Show the prompt
 		deferredPrompt.prompt();
@@ -115,7 +108,6 @@
 		window.addEventListener('appinstalled', (evt) => {
 			console.log("appinstalled fired", evt);
 		});
-		console.log("CHECK 5")	
 	</script>
 	<!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.slim.min.js"></script>

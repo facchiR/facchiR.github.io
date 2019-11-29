@@ -1,7 +1,6 @@
 var writeb = function(browser){
 	var bowser = document.getElementById("bowser"); 
 	bowser.innerHTML = browser; 
-	
 }
 window.addEventListener("load", function() {
   // PARSE USER AGENT
@@ -21,8 +20,8 @@ window.addEventListener("load", function() {
   console.log(result.platform.type);
   
   
-  localStorage.setItem('browserN', result.browser.name); 
+  
   // BROWSER INFO
-  var res = result.browser.name //+ "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
+  var res = result.browser.name + "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
   writeb(res);
 });

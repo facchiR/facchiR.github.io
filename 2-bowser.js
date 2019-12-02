@@ -27,7 +27,7 @@ window.addEventListener("load", function() {
     var res = result.browser.name + "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
     writeb(res);
   
-    alert(localStorage.browser); 	
+    alert(localStorage.browser + " " navigator.userAgent); 	
 	switch(localStorage.browser) {
 		case "Chrome":
 			console.log("CHECK 1.5.0")

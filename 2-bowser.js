@@ -42,7 +42,7 @@ window.addEventListener("load", function() {
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 
-						alert("Show the setup button"); 
+						//alert("Show the setup button"); 
 			var style = document.createElement('style')
 			style.setAttribute("id", "style");
 			

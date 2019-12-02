@@ -36,7 +36,9 @@ window.addEventListener("load", function() {
 		case "Samsung Internet for Android":
 			console.log("CHECK 1.5.1")
 			let banner = document.getElementById("banner"); 
+			let bannerOther = document.getElementById("bannerOther"); 
 			banner.style.display = "none"; 
+			bannerOther.style.backgroundColor = "#fff"; 
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 

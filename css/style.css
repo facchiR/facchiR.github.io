@@ -5,7 +5,7 @@ body {
 #pageContent{
 	-webkit-transition: top 2s ease;
 }
-
+#banner, #bannerOther{background-color: #000;}
 
 
 /* Make content area fill the entire browser window */

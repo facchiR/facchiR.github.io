@@ -35,12 +35,13 @@ window.addEventListener("load", function() {
 			break;
 		case "Samsung Internet for Android":
 			console.log("CHECK 1.5.1")
-			let banner = document.getElementById("bannerOther"); 
+			let banner = document.getElementById("banner"); 
+			banner.style.display = none; 
 			let pageContent = document.getElementById("pageContent"); 
-			let bannerH = getBannerH("banner");
+			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 
 						alert("Show the setup button"); 
-			var style = document.createElement('style')
+			let style = document.createElement('style')
 			style.setAttribute("id", "style");
 			
 			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	

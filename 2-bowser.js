@@ -43,7 +43,7 @@ window.addEventListener("load", function() {
 			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 
 						
-			if(!window.location.includes('standalone')){
+			if(!window.location.href.includes('standalone')){
 				alert("Show the setup button"); 
 				var style = document.createElement('style')
 				style.setAttribute("id", "style");

@@ -27,7 +27,7 @@ window.addEventListener("load", function() {
     var res = result.browser.name + "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
     writeb(res);
   
-    alert(localStorage.browser + " " + navigator.userAgent); 	
+    //alert(localStorage.browser + " " + navigator.userAgent); 	
 	switch(localStorage.browser) {
 		case "Chrome":
 			console.log("CHECK 1.5.0")
@@ -35,8 +35,19 @@ window.addEventListener("load", function() {
 			break;
 		case "Samsung Internet for Android":
 			console.log("CHECK 1.5.1")
+			let banner = document.getElementById("bannerOther"); 
+			let pageContent = document.getElementById("pageContent"); 
+			let bannerH = getBannerH("banner");
+			console.log(bannerH); 
+						alert("Show the setup button"); 
+			var style = document.createElement('style')
+			style.setAttribute("id", "style");
+			
+			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
+			document.head.appendChild(style);					
+
 			// code block
-			//break;
+			break;
 		default:
 			// code block
 	}

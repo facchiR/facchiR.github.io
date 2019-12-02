@@ -45,7 +45,17 @@
 	<script src="js/main.js"></script>
 	<script>
 		console.log("CHECK 1")	
-		console.log(localStorage); 	
+		alert(localStorage.browser); 	
+		switch(localStorage.browser) {
+		    case "Chrome":
+			    // code block
+				break;
+		    //case "":
+				// code block
+				//break;
+		    default:
+				// code block
+		}
 		
 		function getBannerH (id){
 			var img = document.getElementById(id); 

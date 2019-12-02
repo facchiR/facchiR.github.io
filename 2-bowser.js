@@ -44,7 +44,7 @@ window.addEventListener("load", function() {
 			console.log(bannerH); 
 						
 			if(!window.location.href.includes('standalone')){
-				alert("Show the setup button"); 
+				//alert("Show the setup button"); 
 				var style = document.createElement('style')
 				style.setAttribute("id", "style");
 				style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	

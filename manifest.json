@@ -1,6 +1,6 @@
 {
-  "name": "Hello World",
-  "short_name": "Hello",
+  "name": "gmg installation test",
+  "short_name": "TEST",
   "icons": [{
     "src": "images/pm-icon-128.png",
       "sizes": "128x128",

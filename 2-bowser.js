@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
   
    // BROWSER INFO
   console.log(result.browser.name);
-  localStorage.set("browser", result.browser.name); 
+  localStorage.setItem("browser", result.browser.name); 
   console.log(result.browser.version);
   console.log(result.engine);
 

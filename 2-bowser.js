@@ -42,12 +42,16 @@ window.addEventListener("load", function() {
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 
-						//alert("Show the setup button"); 
-			var style = document.createElement('style')
-			style.setAttribute("id", "style");
+						
+			if(!window.location.includes('standalone')){
+				alert("Show the setup button"); 
+				var style = document.createElement('style')
+				style.setAttribute("id", "style");
+				style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
+				document.head.appendChild(style);					
+				
+			}
 			
-			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
-			document.head.appendChild(style);					
 
 			// code block
 			break;

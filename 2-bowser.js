@@ -38,7 +38,7 @@ window.addEventListener("load", function() {
 			let banner = document.getElementById("banner"); 
 			let bannerOther = document.getElementById("bannerOther"); 
 			banner.style.display = "none"; 
-			bannerOther.style.backgroundColor = "#fff"; 
+			bannerOther.style.color = "rgb(33, 37, 41)"; 
 			let pageContent = document.getElementById("pageContent"); 
 			let bannerH = getBannerH("bannerOther");
 			console.log(bannerH); 

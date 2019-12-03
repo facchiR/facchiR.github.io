@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true&mode=standalone",
+  "start_url": "test.html/?mode=standalone",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"

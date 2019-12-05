@@ -3,31 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>gmg installation test</title>
+	<title>PWA installation test</title>
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" href="images/hello-icon-152.png">
+	<link rel="apple-touch-icon" href="images/pm-icon-152.png">
 	
 	<meta name="theme-color" content="white"/>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="Hello World">
-	<meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+	<meta name="msapplication-TileImage" content="images/pm-icon-144.png">
 	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script-->
 	
 	<!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bowser@2.5.3/es5.js"></script>
+	<!--script src="https://cdn.jsdelivr.net/npm/bowser@2.5.3/es5.js"></script-->
 	
 	<!-- Bowser, a browser detector -->
 	<script src="2-bowser.js"></script>
 </head>
-<body class="">
+<body>
 	<div class="container-fluid">     
         <noscript>
 			You need to enable JavaScript to run this app.
@@ -45,16 +41,14 @@
 				il nostro play store
 			</div>
 		</div>
-		<iframe src="https://data.perpetuum-media.com/newgmg/getmore/listroz.php?channelID=vodacom-games&territory=us&gameID=com.arcsys.tictactoe&lang=en&ignoreList=com.arcsys.tictactoe&closeButton=true" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+		<iframe src="https://vf-es-games.mondiamedia.com/" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 		<p id="bowser" style="display: none;"></p>
 	</div>
-  
-
 	<script src="js/main.js"></script>
 	<script>
 		console.log("CHECK 1")	
 		
-		
+		// Dynamical banner resize 
 		function getBannerH (id){
 			var img = document.getElementById(id); 
 			var height = img.clientHeight+"px";
@@ -95,14 +89,11 @@
 			//pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
-			//alert("Show the setup button"); 
 			var style = document.createElement('style')
 			style.setAttribute("id", "style");
 			
 			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
 			document.head.appendChild(style);					
-			
-			console.log("ROZ10"); 
 		});
 		console.log("CHECK 4")	
 		function installApp() {
@@ -116,6 +107,11 @@
 					console.log('PWA setup accepted');
 					// hide our user interface that shows our A2HS button
 					setupButton.style.display = 'none';
+					var style = document.createElement('style')
+					style.setAttribute("id", "style");
+					
+					style.innerHTML = "#pageContent{top:0 !important;}";	
+					document.head.appendChild(style);
 				} else {
 					console.log('PWA setup rejected');
 				}

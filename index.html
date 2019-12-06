@@ -28,20 +28,127 @@
         <noscript>
 			You need to enable JavaScript to run this app.
 		</noscript>
-		<div class="row text-center" id="banner">
-			<div class="col-lg-12 my-auto p-3">
-				Clicca qui per
-				<button id="setup_button" type="button" class="btn btn-primary" onclick="installApp()">Installare</button>
-				il nostro play store
+
+		
+		<div>
+			<div>
+				<a href="intent://details?id=es.vodafone.games#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Des.vodafone.games;end" type="button" class="btn btn-primary btn-lg btn-block">OPEN ON GOOGLE PLAY STORE</a>
+				<a href="https://vf-es-games.mondiamedia.com/" type="button" class="btn btn-primary btn-lg btn-block">OPEN WEB STORE IN BROWSER</a>
+			</div>
+			<p>
+				<p class="block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p "block">
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				
+
+			<p>
+			<div>
+				<button id="setup_button" type="button" class="btn btn-secondary btn-lg btn-block" onclick="installApp()">WEB APP INSTALL</button>
+			</div>
+			<div class="row text-center" id="bannerOther">
+				<div class="col-lg-12 my-auto p-3">
+					Clicca qui sulla freccia per installare
+					il nostro play store
+				</div>
 			</div>
 		</div>
-		<div class="row text-center" id="bannerOther">
-			<div class="col-lg-12 my-auto p-3">
-				Clicca qui sulla freccia per installare
-				il nostro play store
-			</div>
-		</div>
-		<iframe src="https://staging-vf-es-games.mondiamedia.com/" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" id="pageContent" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 		<p id="bowser" style="display: none;"></p>
 	</div>
 	<script src="js/main.js"></script>
@@ -75,25 +182,14 @@
 				setupButton = document.getElementById("setup_button");
 			}
 			// Show the setup button
-			console.log("Show the setup button"); 
-			let banner = document.getElementById("banner"); 
-			let pageContent = document.getElementById("pageContent"); 
-			let bannerH = getBannerH("banner");
+			
 			
 			let bannerOther = document.getElementById("bannerOther"); 
 			bannerOther.style.display = "none"; 
-			banner.style.color = "rgb(33, 37, 41)"; 
 			
-			console.log(bannerH); 
-			//banner.style.visibility = "visible"
-			//pageContent.style.top = bannerH +"px"
 			setupButton.style.display = "inline";
 			setupButton.disabled = false;
-			var style = document.createElement('style')
-			style.setAttribute("id", "style");
-			
-			style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
-			document.head.appendChild(style);					
+						
 		});
 		console.log("CHECK 4")	
 		function installApp() {
@@ -107,11 +203,6 @@
 					console.log('PWA setup accepted');
 					// hide our user interface that shows our A2HS button
 					setupButton.style.display = 'none';
-					var style = document.createElement('style')
-					style.setAttribute("id", "style");
-					
-					style.innerHTML = "#pageContent{top:0 !important;}";	
-					document.head.appendChild(style);
 				} else {
 					console.log('PWA setup rejected');
 				}

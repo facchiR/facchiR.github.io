@@ -35,20 +35,17 @@ window.addEventListener("load", function() {
 			break;
 		case "Samsung Internet for Android":
 			console.log("CHECK 1.5.1")
-			let banner = document.getElementById("banner"); 
+			
 			let bannerOther = document.getElementById("bannerOther"); 
-			banner.style.display = "none"; 
-			bannerOther.style.color = "rgb(33, 37, 41)"; 
-			let pageContent = document.getElementById("pageContent"); 
-			let bannerH = getBannerH("bannerOther");
-			console.log(bannerH); 
+			
+			
+			//let pageContent = document.getElementById("pageContent"); 
+			//let bannerH = getBannerH("bannerOther");
+			//console.log(bannerH); 
 						
 			if(!window.location.href.includes('standalone')){
 				//alert("Show the setup button"); 
-				var style = document.createElement('style')
-				style.setAttribute("id", "style");
-				style.innerHTML = "#pageContent{top:"+bannerH+" !important;}";	
-				document.head.appendChild(style);					
+				bannerOther.style.display = "block"; 
 				
 			}
 			

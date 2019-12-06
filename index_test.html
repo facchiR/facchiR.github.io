@@ -45,7 +45,6 @@
 					//options.url = "http://cors.corsproxy.io/url=" + options.url;
 				  }
 				});
-				
 				// PARSE USER AGENT
 				var result = bowser.getParser(navigator.userAgent).getResult();
 			  
@@ -76,9 +75,13 @@
 				console.log(log);
 				
 				// Write log on server file
-				
 				$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
 				{
+					// Write log on perpetuum server file
+					$.post("https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log="+encodeURI(log)+"&id="+data, function(data, status)
+					{
+					});
+					
 				});
 			}
 			
@@ -89,15 +92,11 @@
 				if (flipped === '')
 				{
 					// If there is no cookies let's call our server flip
-					$.ajax({
-						crossOrigin: true,
-					    type:     "GET",
-					    url:      "https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php",					
-					    success: function(data){
-							// Save flip on cookies
-							writeLog ("Flip got: " + data + " from perpetuum server");
-							setCookie("flipped", data, 90);
-					    }
+					$.post("https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php", function(data, status)
+					{
+						// Save flip on cookies
+						writeLog ("Flip got: " + data + " from perpetuum server");
+						setCookie("flipped", data, 90);
 					});
 				}
 				else

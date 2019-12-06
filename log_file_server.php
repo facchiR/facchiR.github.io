@@ -1,19 +1,4 @@
 <?PHP
-header('Content-Type: image/jpeg');
-$http_origin = $_SERVER['HTTP_ORIGIN'];
-
-$allowed_domains = array(
-  'https://facchir.github.io',
-  'http://domain2.com',
-);
-
-if (in_array($http_origin, $allowed_domains))
-{  
-    header("Access-Control-Allow-Origin: $http_origin");
-}
-
-
-
 //Clean GET params
 reset($_GET);
 while (list($value, $parameter) = each($_GET)) { 
@@ -65,9 +50,8 @@ if ($log !== '')
 	curl_setopt($curlSES, CURLOPT_HEADER, false);
 	$result=curl_exec($curlSES);
 	
-	
-    //header("Access-Control-Allow-Origin: *");
-	
+	header('Content-Type: image/jpeg');
+    header("Access-Control-Allow-Origin: *");
 
 	
 	curl_close($curlSES);	

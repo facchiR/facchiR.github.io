@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
 			writeLog("Show Samsung Internet for Android banner"); 
 			banner.style.display = "block"; 
 				
-			
+			writeLog("Show Samsung Internet for Android banner 2"); 
 			
 
 

@@ -44,7 +44,7 @@ window.addEventListener("load", function() {
 			//console.log(bannerH); 
 						
 			if(!window.location.href.includes('standalone')){
-				//alert("Show the setup button"); 
+				alert("Show the setup button"); 
 				bannerOther.style.display = "block"; 
 				
 			}

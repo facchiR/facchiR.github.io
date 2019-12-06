@@ -69,12 +69,12 @@
 				
 				// Write log on server file
 				$.ajax({
-				  type:     "GET",
-				  url:      "./log_file_server.php?log="+encodeURI(log),
-				  dataType: "jsonp",
-				  success: function(data){
-					console.log(data);
-				  }
+					crossOrigin: true,
+				    type:     "GET",
+				    url:      "./log_file_server.php?log="+encodeURI(log),				  
+				    success: function(data){
+						console.log(data);
+					}
 				});
 			}
 			
@@ -86,14 +86,14 @@
 				{
 					// If there is no cookies let's call our server flip
 					$.ajax({
-					  type:     "GET",
-					  url:      "https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php",
-					  dataType: "jsonp",
-					  success: function(data){
-						// Save flip on cookies
-						writeLog ("Flip got: " + data + " from perpetuum server");
-						setCookie("flipped", data, 90);
-					  }
+						crossOrigin: true,
+					    type:     "GET",
+					    url:      "https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php",					
+					    success: function(data){
+							// Save flip on cookies
+							writeLog ("Flip got: " + data + " from perpetuum server");
+							setCookie("flipped", data, 90);
+					    }
 					});
 				}
 				else

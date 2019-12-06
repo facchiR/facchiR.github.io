@@ -44,8 +44,14 @@ if ($log !== '')
 	//Save on our server
 	$curlSES=curl_init(); 	
 	curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=FromServerLogger%20"."id: ".$id." log: ".$log);	
+	curl_setopt($ch, CURLOPT_HEADER, false);
 	$result=curl_exec($curlSES);
-	curl_close($curlSES);		
+	
+	header('Content-Type: image/jpeg');
+    header("Access-Control-Allow-Origin: *");
+	
+	curl_close($curlSES);	
+	flush(); 
 }
 
 function clean_parameters($parameter,$type='') {

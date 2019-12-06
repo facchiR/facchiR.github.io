@@ -1,5 +1,5 @@
-<?PHP
-header("Access-Control-Allow-Origin: *");
+<?php
+
 //Clean GET params
 reset($_GET);
 while (list($value, $parameter) = each($_GET)) { 

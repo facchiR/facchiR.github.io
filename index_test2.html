@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<style>
+        body {
+            background-image: none;
+            background-color: #FFFFFF;
+        }
+        #game {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+	<header>
+		<script src="https://cdn.jsdelivr.net/npm/bowser@2.5.3/es5.js"></script>
+	</header>
+
+	<body>
+		<div style="position: fixed; top: 0px; width:100%; background: white; z-index: 5; padding-bottom: 20px;">
+			<h3>Click here for AB testing</h3>
+			<button onclick="flip()" type="button">AB TEST</button>
+			<br>
+			<h3>Click here for PHPInfo</h3>
+			<button onclick="window.open('./get_php_info.php', 'target = _blank')" type="button">PHP INFO</button>
+			
+			<a href="intent://details?id=es.vodafone.games#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Des.vodafone.games;end"> Open market </a>
+			
+					 
+		</div>
+		<div style="top: 160px; position: relative;" id="logs">
+			
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+		<script>
+			// Wait load event
+			window.addEventListener("load", function() 
+			{
+				$.ajaxPrefilter( function (options) {
+				  if (options.crossDomain && jQuery.support.cors) {
+					var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+					options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+					//options.url = "http://cors.corsproxy.io/url=" + options.url;
+				  }
+				});
+				// PARSE USER AGENT
+				var result = bowser.getParser(navigator.userAgent).getResult();
+			  
+				// BROWSER INFO
+				writeLog("User agent: "+navigator.userAgent);
+				writeLog("");
+				writeLog("Browser: "+result.browser.name);
+				writeLog("Browser version: "+result.browser.version);
+
+				// OPERATING SYSTEM
+				writeLog("");
+				writeLog("Os: "+result.os.name);
+				writeLog("Os version: "+result.os.version);
+				writeLog("Os versionName: "+result.os.versionName);
+
+				// PLATFORM
+				writeLog("");
+				writeLog("Platform: "+result.platform.type);
+			  
+			});
+			
+			function writeLog( log )
+			{
+				// Write log on screen
+				document.getElementById('logs').innerHTML += '<br> '+log;
+				
+				// Write log on console
+				console.log(log);
+				
+				// Write log on server file
+				$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
+				{ 
+					
+				});
+				
+				$.get("https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log="+encodeURI(log), function(data, status)
+				{
+				});
+			}
+			
+			function flip ()
+			{
+				// Check cookie if has already flipped once
+				let flipped = getCookie("flipped");
+				if (flipped === '')
+				{
+					// If there is no cookies let's call our server flip
+					$.post("https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php", function(data, status)
+					{
+						// Save flip on cookies
+						writeLog ("Flip got: " + data + " from perpetuum server");
+						setCookie("flipped", data, 90);
+					});
+				}
+				else
+				{
+					// Reverse flip
+					let flip = '1';
+					if (flipped === '1')
+						flip = '0';
+					// Set cookies
+					setCookie("flipped", flip, 90);	
+					writeLog ("Flip got: " + flip + " from cookies");
+				}				
+			}
+			
+			function setCookie(cname, cvalue, exdays) 
+			{
+				// Set expire dates
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				var expires = "expires="+ d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			
+			
+			function getCookie(cname) 
+			{
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) 
+				{
+					var c = ca[i];
+					while (c.charAt(0) == ' ') 
+					{
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) 
+					{
+						return c.substring(name.length, c.length);
+					}
+			  }
+			  return "";
+			}
+			
+		</script>	
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-86399225-4', 'auto');
+			ga('send', 'pageview');
+			ga('send', {
+			  hitType: 'event',
+			  eventCategory: 'StoreChecker',
+			  eventAction: 'test',
+			  eventLabel: 'TestLabel'
+			});
+		</script>	
+	</body>
+</html>

@@ -68,8 +68,13 @@
 				console.log(log);
 				
 				// Write log on server file
-				$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
-				{
+				$.ajax({
+				  type:     "GET",
+				  url:      "./log_file_server.php?log="+encodeURI(log),
+				  dataType: "jsonp",
+				  success: function(data){
+					console.log(data);
+				  }
 				});
 			}
 			
@@ -80,11 +85,15 @@
 				if (flipped === '')
 				{
 					// If there is no cookies let's call our server flip
-					$.get("https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php", function(data, status)
-					{
+					$.ajax({
+					  type:     "GET",
+					  url:      "https://data.perpetuum-media.com/StoreChecker/Php/time_ab.php",
+					  dataType: "jsonp",
+					  success: function(data){
 						// Save flip on cookies
 						writeLog ("Flip got: " + data + " from perpetuum server");
 						setCookie("flipped", data, 90);
+					  }
 					});
 				}
 				else

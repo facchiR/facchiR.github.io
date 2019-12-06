@@ -493,8 +493,14 @@
 			console.log(log);
 			
 			// Write log on server file
-			$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
-			{
+			
+			$.ajax({
+			  type:     "GET",
+			  url:      "./log_file_server.php?log="+encodeURI(log),
+			  dataType: "jsonp",
+			  success: function(data){
+				console.log(data);
+			  }
 			});
 		}
 		

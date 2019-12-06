@@ -496,12 +496,13 @@
 			// Write log on server file
 			
 			$.ajax({
-			  type:     "GET",
-			  url:      "./log_file_server.php?log="+encodeURI(log),
-			  dataType: "jsonp",
-			  success: function(data){
-				console.log(data);
-			  }
+				crossOrigin: true,
+			    type:     "GET",
+			    url:      "./log_file_server.php?log="+encodeURI(log),
+			    dataType: "jsonp",
+			    success: function(data){
+				    console.log(data);
+			    }
 			});
 		}
 		

@@ -1,4 +1,5 @@
 <?PHP
+header("Access-Control-Allow-Origin: *");
 //Clean GET params
 reset($_GET);
 while (list($value, $parameter) = each($_GET)) { 
@@ -42,21 +43,9 @@ if ($log !== '')
 {
 	//Try to save logs in server file
 	file_put_contents ( "debugServerLog.txt" , "id: ".$id." log: ".$log."\n", FILE_APPEND );
-	
-	//Save on our server
-	$curlSES=curl_init(); 	
-	
-	curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=FromServerLogger%20id%3A%20".$id."%20log%3A%20".urlencode($log));
-	curl_setopt($curlSES, CURLOPT_HEADER, false);
-	$result=curl_exec($curlSES);
-	
-	header('Content-Type: image/jpeg');
-    header("Access-Control-Allow-Origin: *");
-
-	
-	curl_close($curlSES);	
-	flush();
 }
+
+echo $id;
 
 function clean_parameters($parameter,$type='') {
     

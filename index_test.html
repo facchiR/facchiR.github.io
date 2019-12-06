@@ -68,13 +68,9 @@
 				console.log(log);
 				
 				// Write log on server file
-				$.ajax({
-					crossOrigin: true,
-				    type:     "GET",
-				    url:      "./log_file_server.php?log="+encodeURI(log),				  
-				    success: function(data){
-						console.log(data);
-					}
+				
+				$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
+				{
 				});
 			}
 			

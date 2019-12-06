@@ -33,7 +33,9 @@ else
 	$id = $_COOKIE["unique_id"];
 
 //Get logs
-$log = $_GET['log'] ?:'';
+$log = '';
+if ( $_GET['log'] )
+	$log = $_GET['log'];
 
 //If no logs ignore it
 if ($log !== '')
@@ -45,10 +47,12 @@ if ($log !== '')
 	$curlSES=curl_init(); 	
 	
 	curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=FromServerLogger%20id%3A%20".$id."%20log%3A%20".urlencode($log));
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
-    curl_setopt($ch, CURLOPT_GSSAPI_DELEGATION, CURLGSSAPI_DELEGATION_FLAG);    
-    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_GSSNEGOTIATE);    
+	curl_setopt($curlSES, CURLOPT_HEADER, false);
 	$result=curl_exec($curlSES);
+	
+	header('Content-Type: image/jpeg');
+    header("Access-Control-Allow-Origin: *");
+
 	
 	curl_close($curlSES);	
 	flush();

@@ -43,11 +43,11 @@ window.addEventListener("load", function() {
 			//let bannerH = getBannerH("bannerOther");
 			//console.log(bannerH); 
 						
-			if(!window.location.href.includes('standalone')){
+			//if(!window.location.href.includes('standalone')){
 				alert("Show the setup button"); 
 				bannerOther.style.display = "block"; 
 				
-			}
+			//}
 			
 
 			// code block

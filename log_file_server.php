@@ -46,6 +46,10 @@ if ($log !== '')
 	
 	curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=FromServerLogger%20id%3A%20".$id."%20log%3A%20".urlencode($log));
 	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);    
+    curl_setopt($ch, CURLOPT_GSSAPI_DELEGATION, CURLGSSAPI_DELEGATION_FLAG);    
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_GSSNEGOTIATE);    
 	$result=curl_exec($curlSES);
 	header('Content-Type: image/jpeg');
     header("Access-Control-Allow-Origin: *");

@@ -27,28 +27,22 @@ window.addEventListener("load", function() {
     var res = result.browser.name + "<br>" + result.browser.version + "<br>" + result.engine.name + "<br>" + result.os.name + "<br>" + result.os.version+ "<br>" + result.os.versionName + "<br>" + result.platform.type;
     writeb(res);
   
-    alert(localStorage.browser + " " + navigator.userAgent); 	
 	switch(localStorage.browser) {
 		case "Chrome":
-			console.log("CHECK 1.5.0")
+			writeLog("Chrome case")
 			// code block
 			break;
 		case "Samsung Internet for Android":
-			console.log("CHECK 1.5.1")
+			writeLog("Samsung Internet for Android case")
 			
 			let banner = document.getElementById("banner"); 
 			
-			
-			//let pageContent = document.getElementById("pageContent"); 
-			//let bannerH = getBannerH("bannerOther");
-			//console.log(bannerH); 
-						
-			if(!window.location.href.includes('standalone')){
-				alert("Show the setup button"); 
-				banner.style.display = "block"; 
+			writeLog("Show Samsung Internet for Android banner"); 
+			banner.style.display = "block"; 
 				
-			}
 			
+			
+
 
 			// code block
 			break;

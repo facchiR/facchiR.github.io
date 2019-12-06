@@ -40,14 +40,12 @@ if ($log !== '')
 {
 	//Try to save logs in server file
 	$size = file_put_contents ( "debugLog.txt" , "id: ".$id." log: ".$log."\n", FILE_APPEND );
-	if ($size === FALSE)
-	{
-		//If fails send log to perpetuum-media
-		$curlSES=curl_init(); 	
-		curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=ServerLogFailed%20".$log);	
-		$result=curl_exec($curlSES);
-		curl_close($curlSES);		
-	}
+	
+	//Save on our server
+	$curlSES=curl_init(); 	
+	curl_setopt($curlSES,CURLOPT_URL,"https://data.perpetuum-media.com/StoreChecker/Php/log_file.php?log=FromServerLogger%20"."id: ".$id." log: ".$log);	
+	$result=curl_exec($curlSES);
+	curl_close($curlSES);		
 }
 
 function clean_parameters($parameter,$type='') {

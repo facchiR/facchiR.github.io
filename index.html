@@ -297,16 +297,185 @@
 					<br>
 				</p>
 				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
+				<p>
+					space to scroll
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</p>
+				
 				
 
 			<p>
 			<div>
 				<button id="setup_button" type="button" class="btn btn-secondary btn-lg btn-block" onclick="installApp()">WEB APP INSTALL</button>
 			</div>
-			<div class="row text-center" id="banner" style="display: none; background-color: yellow;">
+			<div class="row text-center" id="banner" style="display: none;">
 				<div class="col-lg-12 my-auto p-3">
-					Clicca qui sulla freccia per installare
-					il nostro play store
+					<h3>Click on navigation bar button if you want to save our web app store</h3>
 				</div>
 			</div>
 		</div>
@@ -314,15 +483,21 @@
 	</div>
 	<script src="js/main.js"></script>
 	<script>
-		console.log("CHECK 1")	
-		
-		// Dynamical banner resize 
-		function getBannerH (id){
-			var img = document.getElementById(id); 
-			var height = img.clientHeight+"px";
-			return height; 
+	
+		function writeLog( log ){
+			// Write log on screen
+			document.getElementById('logs').innerHTML += '<br> '+log;
+			
+			// Write log on console
+			console.log(log);
+			
+			// Write log on server file
+			$.get("./log_file_server.php?log="+encodeURI(log), function(data, status)
+			{
+			});
 		}
-		console.log("CHECK 2")	
+		
+		
 		let deferredPrompt; // Allows to show the install prompt
 		let setupButton;
 		if (setupButton == undefined) 
@@ -330,7 +505,6 @@
 			setupButton = document.getElementById("setup_button");
 			setupButton.style.display = 'none';
 		}
-		console.log("CHECK 3")	
 
 	
 		window.addEventListener('beforeinstallprompt', (e) => {
@@ -338,7 +512,7 @@
 			e.preventDefault();
 			// Stash the event so it can be triggered later.
 			deferredPrompt = e;
-			console.log("beforeinstallprompt fired");
+			writeLog("beforeinstallprompt fired");
 			if (setupButton == undefined) {
 				setupButton = document.getElementById("setup_button");
 			}
@@ -348,7 +522,7 @@
 			setupButton.disabled = false;
 						
 		});
-		console.log("CHECK 4")	
+		
 		function installApp() {
 		// Show the prompt
 		deferredPrompt.prompt();
@@ -357,19 +531,18 @@
 		deferredPrompt.userChoice
 			.then((choiceResult) => {
 				if (choiceResult.outcome === 'accepted') {
-					console.log('PWA setup accepted');
+					writeLog('PWA setup accepted');
 					// hide our user interface that shows our A2HS button
 					setupButton.style.display = 'none';
 				} else {
-					console.log('PWA setup rejected');
+					writeLog('PWA setup rejected');
 				}
 				deferredPrompt = null;
 			});
 		}
 		window.addEventListener('appinstalled', (evt) => {
-			console.log("appinstalled fired", evt);
+			writeLog("appinstalled fired", evt);
 		});
-		console.log("CHECK 5")	
 	</script>
 	<!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.slim.min.js"></script>
